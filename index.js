@@ -1,7 +1,8 @@
-const Manager = require("./Develop/lib/manager");
-const Engineer= require("./Develop/lib/engineer");
-const Intern = require("./Develop/lib/intern");
-const inquirer = require("inquirer")
+const inquirer = require('inquirer');
+const Manager = require('./Develop/lib/manager');
+const Engineer= require('./Develop/lib/engineer');
+const Intern = require('./Develop/lib/intern');
+
 
 const staff = [];
 
@@ -25,12 +26,12 @@ function promptManager () {
         },
         {
             type: 'input',
-            name: 'office',
+            name: 'officeNumber',
             message: 'What is your office #?',
         }
     ])
-    .then(({name, id, email, office}) => {
-        this.Manager = new Manager(name, id, email, office);
+    .then(({name, id, email, officeNumber}) => {
+        this.Manager = new Manager(name, id, email, officeNumber);
         staff.push(this.Manager)
         getRole();
     })
@@ -55,7 +56,7 @@ function getRole() {
             addEngineer();
         }
         else if (add === 'Intern') {
-            addIntern
+            addIntern();
         }
         else if (add === 'No') {
 
@@ -125,7 +126,5 @@ function addIntern () {
     })
 };
 
-function addStaff () {
-
-}
+promptManager();
 
