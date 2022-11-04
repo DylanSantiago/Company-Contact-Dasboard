@@ -51,14 +51,14 @@ function getRole() {
             ]
         }
     ])
-    .then (({add}) => {
-        if(add === 'Engineer') {
+    .then (({staff}) => {
+        if(staff === 'Engineer') {
             addEngineer();
         }
-        else if (add === 'Intern') {
+        else if (staff === 'Intern') {
             addIntern();
         }
-        else if (add === 'No') {
+        else if (staff === 'No') {
 
         }
     })
