@@ -34,7 +34,7 @@ function displayStaff (roster) {
 
     for (let i = 0; i < roster.length; i++) {
         const staffMember = roster[i];
-        const staffRole = staffMember.getRole();
+        const staffRole = staffMember.staffRole;
 
         if (staffRole === 'Manager') {
             const manager = promptManager(staffMember)

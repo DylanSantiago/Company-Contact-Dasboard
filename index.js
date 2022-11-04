@@ -2,9 +2,12 @@ const inquirer = require('inquirer');
 const Manager = require('./Develop/lib/manager');
 const Engineer= require('./Develop/lib/engineer');
 const Intern = require('./Develop/lib/intern');
+const fs = require('fs');
 
 
 const staff = [];
+
+const displayStaff = require("./Develop/lib/generatehtml")
 
 function promptManager () {
     inquirer
@@ -36,33 +39,6 @@ function promptManager () {
         getRole();
     })
 }
-
-function getRole() {
-    inquirer
-    .prompt([
-        {
-            type: 'list',
-            name: 'staff',
-            message:'Would you like to add more Team Members?',
-            choices: [
-                'Engineer',
-                'Intern',
-                'No'
-            ]
-        }
-    ])
-    .then (({staff}) => {
-        if(staff === 'Engineer') {
-            addEngineer();
-        }
-        else if (staff === 'Intern') {
-            addIntern();
-        }
-        else if (staff === 'No') {
-
-        }
-    })
-};
 
 function addEngineer () {
     inquirer
@@ -123,6 +99,39 @@ function addIntern () {
         this.Intern = new Intern(name, id, email, school);
         staff.push(this.Intern)
         getRole();
+    })
+};
+
+function writeFile(textContent, staff) {
+    fs.writeFileSync('./Develop/output/main.html', textContent)
+}
+
+function getRole() {
+    inquirer
+    .prompt([
+        {
+            type: 'list',
+            nnoame: 'fullStaff',
+            message:'Would you like to add more Team Members?',
+            choices: [
+                'Engineer',
+                'Intern',
+                'No'
+            ]
+        }
+    ])
+    .then (({fullStaff}) => {
+        if(fullStaff === 'Engineer') {
+            addEngineer();
+        }
+        else if (fullStaff === 'Intern') {
+            addIntern();
+        }
+        else if (fullStaff === 'No') {
+            const textContent = displayStaff(staff);
+            writeFile(textContent, staff);
+           return console.log("index created!")
+        }
     })
 };
 
