@@ -34,7 +34,7 @@ function displayStaff (roster) {
 
     for (let i = 0; i < roster.length; i++) {
         const staffMember = roster[i];
-        const staffRole = staffMember.staffRole;
+        const staffRole = staffMember.getRole();
 
         if (staffRole === 'Manager') {
             const manager = promptManager(staffMember)
@@ -84,8 +84,8 @@ function addEngineer(engineer) {
         <div class = " ">
             <ul class = " ">
                 <li class = " "> Employee ID: ${engineer.id}</li>
-                <li class = " "> Email: <a href="mailto:${engineer.email}">${manager.email}</a></li>
-                <li class = " "> Github: <a href="https://github.com/${engineer.github}>${engineer.github}</a></li>
+                <li class = " "> Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                <li class = " "> Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
             </ul>
         </div>
     </section>
@@ -110,4 +110,4 @@ function addIntern(intern) {
 `
 };
 
-module.exports = displayStaff
+module.exports = displayStaff;

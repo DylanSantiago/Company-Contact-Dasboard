@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const staff = [];
 
-const displayStaff = require("./Develop/lib/generatehtml")
+const displayHTML = require("./Develop/lib/generatehtml")
 
 function promptManager () {
     inquirer
@@ -111,7 +111,7 @@ function getRole() {
     .prompt([
         {
             type: 'list',
-            nnoame: 'fullStaff',
+            name: 'fullStaff',
             message:'Would you like to add more Team Members?',
             choices: [
                 'Engineer',
@@ -128,7 +128,7 @@ function getRole() {
             addIntern();
         }
         else if (fullStaff === 'No') {
-            const textContent = displayStaff(staff);
+            const textContent = displayHTML(staff);
             writeFile(textContent, staff);
            return console.log("index created!")
         }
