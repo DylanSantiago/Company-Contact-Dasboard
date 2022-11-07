@@ -1,3 +1,4 @@
+// Function that will lay foundation for HTML to be generated
 function displayHTML (displayCards) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -9,10 +10,10 @@ function displayHTML (displayCards) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     </head>
-    <body class ="bg-light"
+    <body class ="bg-secondary"
         <section class ="container-fluid"> 
             <section class = "row">
-                <div class = "mt-4 p-5 bg-success text-dark">
+                <div class = "mt-4 p-5 bg-success text-white">
                     <h1 class = "text-center">Company Contact Dashboard</h1>
                 </div>
             </section>
@@ -30,6 +31,7 @@ function displayHTML (displayCards) {
     </html>`
 };
 
+// Function that will be exported and determines HTML for which role to display
 function displayStaff (roster) {
    
     const staffCards = [];
@@ -53,11 +55,14 @@ function displayStaff (roster) {
             staffCards.push(intern)
         }
     }
+    // Selected roles will stored in displayCards variable
     const displayCards = staffCards.join('');
     
     return displayHTML(displayCards);
 };
 
+//promptManager, promptEngineer, and promptIntern will write HTML 
+// for each selection with information from user input
 function promptManager(manager) {
     return `
     <section class = "card col-3 m-3 bg-dark">

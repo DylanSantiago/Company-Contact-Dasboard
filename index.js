@@ -4,11 +4,12 @@ const Engineer= require('./Develop/lib/engineer');
 const Intern = require('./Develop/lib/intern');
 const fs = require('fs');
 
-
+// Empty array to store command line reponses from user
 const staff = [];
 
 const displayHTML = require("./Develop/lib/generatehtml")
 
+// Command line user is prompted with questions to initialize app
 function promptManager () {
     inquirer
     .prompt([
@@ -36,10 +37,13 @@ function promptManager () {
     .then(({name, id, email, officeNumber}) => {
         this.Manager = new Manager(name, id, email, officeNumber);
         staff.push(this.Manager)
+        // getRole() is a function that allows the user 
+        // to navigate to following prompts and add users to their team
         getRole();
     })
 }
 
+// addEngineer() and addIntern() are functions that prompt users about adding members to their team.
 function addEngineer () {
     inquirer
     .prompt([
@@ -102,7 +106,8 @@ function addIntern () {
     })
 };
 
-function writeFile(textContent, staff) {
+// Function that writes a new HTML page everytime the prompts are completed with new information
+function writeFile(textContent) {
     fs.writeFileSync('./Develop/output/main.html', textContent)
 }
 
@@ -128,6 +133,8 @@ function getRole() {
             addIntern();
         }
         else if (fullStaff === 'No') {
+            // If user selects 'No', the imported function displayHTML combined with the empty 'staff' 
+            // array create an HTML page with all of the information that was inputed.
             const textContent = displayHTML(staff);
             writeFile(textContent, staff);
            return console.log("index created!")
