@@ -9,11 +9,11 @@ function displayHTML (displayCards) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     </head>
-    <body>
+    <body class ="bg-light"
         <section class ="container-fluid"> 
             <section class = "row">
-                <div class = "mt-4 p-5 bg-primary text-white">
-                    <h1 class = "text-center">My Team</h1>
+                <div class = "mt-4 p-5 bg-success text-dark">
+                    <h1 class = "text-center">Company Contact Dashboard</h1>
                 </div>
             </section>
         </section>
@@ -60,12 +60,12 @@ function displayStaff (roster) {
 
 function promptManager(manager) {
     return `
-    <section class = "card col-3 m-3">
-        <div class = "card-header">
-            <h2>${manager.name}</h2>
+    <section class = "card col-3 m-3 bg-dark">
+        <div class = "card-header bg-success">
+            <h3>${manager.name}</h3>
             <h3> Manager </h3>
         </div>
-        <div class = "card-body bg-primary ">
+        <div class = "card-body bg-success ">
             <ul class = "list-group">
                 <li class = "list-group-item"> Employee ID: ${manager.id}</li>
                 <li class = "list-group-item"> Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
@@ -78,12 +78,12 @@ function promptManager(manager) {
 
 function addEngineer(engineer) {
     return `
-    <section class = "card col-3 m-3">
-        <div class = "card-header">
-            <h2>${engineer.name}</h2>
+    <section class = "card col-3 m-3 bg-dark">
+        <div class = "card-header bg-success">
+            <h3>${engineer.name}</h3>
             <h3> Engineer </h3>
         </div>
-        <div class = "card-body bg-primary">
+        <div class = "card-body bg-success">
             <ul class = "list-group">
                 <li class = "list-group-item"> Employee ID: ${engineer.id}</li>
                 <li class = "list-group-item"> Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
@@ -96,12 +96,12 @@ function addEngineer(engineer) {
 
 function addIntern(intern) {
     return `
-    <section class = "card col-3 m-3">
-        <div class = "card-header">
-            <h2 class = "card-title">${intern.name}</h2>
-            <h3 class = "card-title"> Intern </h3>
+    <section class = "card col-3 m-3 bg-dark">
+        <div class = "card-header bg-success">
+            <h3>${intern.name}</h3>
+            <h3> Intern </h3>
         </div>
-        <div class = "card-body bg-primary">
+        <div class = "card-body bg-success">
             <ul class = "list-group">
                 <li class = "list-group-item"> Employee ID: ${intern.id}</li>
                 <li class = "list-group-item"> Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
